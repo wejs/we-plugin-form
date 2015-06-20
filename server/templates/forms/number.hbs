@@ -1,5 +1,5 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
   <label for="{{fieldId}}">{{t fieldName}}</label>
-  <input id="{{fieldId}}" name="{{name}}" type="{{field.type}}" class="form-control" placeholder="{{t placeholder}}"  {{fieldAttrs}}  value="{{value}}">
+  <input id="{{fieldId}}" name="{{name}}" type="number" class="form-control" placeholder="{{t placeholder}}"  {{fieldAttrs}}  value="{{value}}">
   <span class="help-block">{{error.message}}</span>
 </div>

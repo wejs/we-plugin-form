@@ -15,20 +15,31 @@ module.exports = function loadPlugin(projectPath, Plugin) {
   });
 
   plugin.setHelpers({
-    'form':  __dirname + '/server/helpers/form.js'
+    'form':  __dirname + '/server/helpers/form.js',
+    'form-model':  __dirname + '/server/helpers/form-model.js'
   });
 
   plugin.setTemplates({
+    'forms/form-model': __dirname + '/server/templates/forms/form-model.hbs',
     'forms/form': __dirname + '/server/templates/forms/form.hbs',
     'forms/password': __dirname + '/server/templates/forms/password.hbs',
     'forms/text': __dirname + '/server/templates/forms/text.hbs',
-    'forms/submit': __dirname + '/server/templates/forms/submit.hbs'
+    'forms/submit': __dirname + '/server/templates/forms/submit.hbs',
+    'forms/date': __dirname + '/server/templates/forms/date.hbs',
+    'forms/number': __dirname + '/server/templates/forms/number.hbs',
+    'forms/textarea': __dirname + '/server/templates/forms/textarea.hbs'
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {
     we.form = {
       // loaded forms
-      forms: {}
+      forms: {},
+      resolveField: {
+        'VARCHAR': 'text',
+        'TEXT': 'textarea',
+        'DATETIME': 'date',
+        'BIGINT': 'number'
+      }
     };
   });
 
