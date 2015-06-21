@@ -27,7 +27,8 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     'forms/submit': __dirname + '/server/templates/forms/submit.hbs',
     'forms/date': __dirname + '/server/templates/forms/date.hbs',
     'forms/number': __dirname + '/server/templates/forms/number.hbs',
-    'forms/textarea': __dirname + '/server/templates/forms/textarea.hbs'
+    'forms/textarea': __dirname + '/server/templates/forms/textarea.hbs',
+    'forms/select': __dirname + '/server/templates/forms/select.hbs'
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {

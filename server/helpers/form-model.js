@@ -31,7 +31,7 @@ module.exports = function(we) {
     if (!theme) theme = 'app';
     var html = '';
     var fields = '';
-    var type, attr, fieldAttrs;
+    var type, attr, fieldAttrs, fieldOptions;
 
     var attributes = we.db.modelsConfigs[modelName].definition;
 
@@ -55,6 +55,7 @@ module.exports = function(we) {
         fieldAttrs += ' required="required"';
       }
 
+      fieldOptions = attr.formFieldOptions || {};
       // use type attr
       fields += we.view.renderTemplate(
         'forms/' + type, theme,
@@ -68,6 +69,7 @@ module.exports = function(we) {
           fieldName: 'form-' + modelName + '-' + attrName,
           fieldId: formId + '-' + attrName,
           placeholder: 'form-placeholder-' + modelName + '-' + attrName,
+          fieldOptions: fieldOptions,
           __: this.__
         }
       );
