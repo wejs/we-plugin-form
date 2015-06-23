@@ -31,7 +31,7 @@ module.exports = function(we) {
     if (!theme) theme = 'app';
     var html = '';
     var fields = '';
-    var type, attr, fieldAttrs;
+    var type, attr, fieldAttrs, value;
 
     var attributes = we.db.modelsConfigs[modelName].definition;
 
@@ -43,11 +43,16 @@ module.exports = function(we) {
         continue;
       } else {
         type = we.form.resolveField[attr.type.toString().split('(')[0]];
+        if (!type) {
+          type = 'text';
+          we.log.warn('helper:orm-model: Cant resolve resolveField: ', attr.type.toString());
+        }
       }
 
       fieldAttrs = '';
 
-      var value = values[attrName];
+      value = values[attrName];
+
       if (!value) value = attr.defaultValue;
       if (!value) value = '';
 
