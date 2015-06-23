@@ -28,7 +28,9 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     'forms/date': __dirname + '/server/templates/forms/date.hbs',
     'forms/number': __dirname + '/server/templates/forms/number.hbs',
     'forms/textarea': __dirname + '/server/templates/forms/textarea.hbs',
-    'forms/select': __dirname + '/server/templates/forms/select.hbs'
+    'forms/select': __dirname + '/server/templates/forms/select.hbs',
+    'forms/html': __dirname + '/server/templates/forms/html.hbs',
+    'forms/boolean': __dirname + '/server/templates/forms/boolean.hbs'
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {
@@ -39,7 +41,9 @@ module.exports = function loadPlugin(projectPath, Plugin) {
         'VARCHAR': 'text',
         'TEXT': 'textarea',
         'DATETIME': 'date',
-        'BIGINT': 'number'
+        'BIGINT': 'number',
+        'TINYINT': 'number',
+        'BOOLEAN': 'boolean'
       }
     };
   });
