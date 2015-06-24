@@ -5,11 +5,14 @@
  */
 
 module.exports = function(we) {
-  return function form (formName, values, options) {
+  return function form (formName, values, errors) {
     if (!we.form.forms[formName]) {
       we.log.warn('form '+ formName + ' not found in we.form object.');
       return '';
     }
+
+    var options = arguments[arguments.length-1];
+    if (!errors) errors = {};
 
     var formId = formName;
     if (!values) values = {};
@@ -18,13 +21,23 @@ module.exports = function(we) {
     if (!theme) theme = 'app';
     var html = '';
     var fields = '';
-    var type, attr;
+    var type, attr, value, fieldAttrs;
 
     for ( var attrName in we.form.forms[formName].fields) {
       attr = we.form.forms[formName].fields[attrName];
       type = typeof attr;
-      var value = values[attrName];
+      value = values[attrName];
       if (!value) value = '';
+
+      fieldAttrs = '';
+
+      if (!value) value = attr.defaultValue;
+      if (!value) value = '';
+
+
+      if (attr.allowNull === false) {
+        fieldAttrs += ' required="required"';
+      }
 
       // use type attr
       fields += we.view.renderTemplate(
@@ -33,6 +46,7 @@ module.exports = function(we) {
           value: value,
           field: attr,
           name: attrName,
+          error: (errors[attrName] || null),
           formId: formId,
           fieldName: 'form-' + formName + '-' + attrName,
           fieldId: formId + '-' + attrName,
