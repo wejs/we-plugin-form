@@ -2,5 +2,5 @@
   <label>
     <input id="{{fieldId}}" name="{{name}}" type="checkbox" {{fieldAttrs}}{{#if value}}checked="checked"{{/if}}> {{t fieldName}}
   </label>
-  <span class="help-block">{{error.message}}</span>
+  {{{field-help-error error}}}
 </div>

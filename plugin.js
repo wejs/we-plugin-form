@@ -16,7 +16,8 @@ module.exports = function loadPlugin(projectPath, Plugin) {
 
   plugin.setHelpers({
     'form':  __dirname + '/server/helpers/form.js',
-    'form-model':  __dirname + '/server/helpers/form-model.js'
+    'form-model':  __dirname + '/server/helpers/form-model.js',
+    'field-help-error': __dirname + '/server/helpers/field-help-error.js'
   });
 
   plugin.setTemplates({
@@ -30,7 +31,8 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     'forms/textarea': __dirname + '/server/templates/forms/textarea.hbs',
     'forms/select': __dirname + '/server/templates/forms/select.hbs',
     'forms/html': __dirname + '/server/templates/forms/html.hbs',
-    'forms/boolean': __dirname + '/server/templates/forms/boolean.hbs'
+    'forms/boolean': __dirname + '/server/templates/forms/boolean.hbs',
+    'forms/email': __dirname + '/server/templates/forms/email.hbs'
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {

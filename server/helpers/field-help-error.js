@@ -1,0 +1,18 @@
+/**
+ * Render we.js field errors
+ *
+ * usage: {{{field-helper-error errors}}}
+ */
+
+module.exports = function(we) {
+  return function renderHelper(errors) {
+    if (!errors) return '';
+
+    var html = '';
+    for (var i = 0; i < errors.length; i++) {
+      html += '<span class="help-block">'+errors[i].message+ '</span>'
+    }
+
+    return html;
+  };
+};
