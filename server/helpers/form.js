@@ -48,6 +48,7 @@ module.exports = function(we) {
           name: attrName,
           error: (errors[attrName] || null),
           formId: formId,
+          fieldAttrs: fieldAttrs,
           fieldName: 'form-' + formName + '-' + attrName,
           fieldId: formId + '-' + attrName,
           placeholder: 'form-placeholder-' + formName + '-' + attrName,
