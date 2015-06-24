@@ -31,6 +31,7 @@ module.exports = function(we) {
     if (!theme) theme = 'app';
     var html = '';
     var fields = '';
+
     var type, attr, fieldAttrs, value, fieldOptions;
 
     var attributes = we.db.modelsConfigs[modelName].definition;

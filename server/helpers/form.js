@@ -28,13 +28,13 @@ module.exports = function(we) {
       attr = we.form.forms[formName].fields[attrName];
       type = typeof attr;
       value = values[attrName];
+
       if (!value) value = '';
 
       fieldAttrs = '';
 
       if (!value) value = attr.defaultValue;
       if (!value) value = '';
-
 
       if (attr.allowNull === false) {
         fieldAttrs += ' required="required"';
