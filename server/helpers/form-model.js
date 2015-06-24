@@ -28,7 +28,8 @@ module.exports = function(we) {
     if (!values) values = {};
 
     var theme = options.data.root.theme;
-    if (!theme) theme = 'app';
+    if (!theme) theme = we.view.themes[we.view.appTheme];
+
     var html = '';
     var fields = '';
 

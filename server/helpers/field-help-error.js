@@ -4,7 +4,7 @@
  * usage: {{{field-helper-error errors}}}
  */
 
-module.exports = function(we) {
+module.exports = function() {
   return function renderHelper(errors) {
     if (!errors) return '';
 
