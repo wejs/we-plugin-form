@@ -84,6 +84,10 @@ module.exports = function(we) {
 
     var controllAttrs = '';
 
+    if (options.data.root.redirectTo) {
+      fields += '<input name="redirectTo" type="hidden" value="'+options.data.root.redirectTo+'">'
+    }
+
     html += we.view.renderTemplate('forms/form-model', theme, {
       formId: formId,
       modelName: modelName,

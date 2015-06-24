@@ -63,6 +63,10 @@ module.exports = function(we) {
       controllAttrs += ' we-submit="'+we.form.forms[formName].actionType+'" ';
     }
 
+    if (options.data.root.redirectTo) {
+      fields += '<input name="redirectTo" type="hidden" value="'+options.data.root.redirectTo+'">'
+    }
+
     html += we.view.renderTemplate('forms/form', theme, {
       formId: formId,
       formName: formName,
