@@ -1,5 +1,5 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
-  <label for="{{fieldId}}">{{t fieldName}} {{#unless field.allowNull}}*{{/unless}}</label>
+  <label for="{{fieldId}}">{{t fieldName}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
   <input id="{{fieldId}}" name="{{name}}" type="{{field.type}}" class="form-control" placeholder="{{t placeholder}}" {{fieldAttrs}} value="{{value}}">
   {{{field-help-error error}}}
 </div>
