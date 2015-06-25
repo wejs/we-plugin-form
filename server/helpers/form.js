@@ -36,9 +36,7 @@ module.exports = function(we) {
       if (!value) value = attr.defaultValue;
       if (!value) value = '';
 
-      if (attr.allowNull === false) {
-        fieldAttrs += ' required="required"';
-      }
+      if (attr.allowNull === false) fieldAttrs += ' required="required"';
 
       // use type attr
       fields += we.view.renderTemplate(
@@ -53,7 +51,8 @@ module.exports = function(we) {
           fieldName: 'form-' + formName + '-' + attrName,
           fieldId: formId + '-' + attrName,
           placeholder: 'form-placeholder-' + formName + '-' + attrName,
-          __: this.__
+          __: this.__,
+          locals: options.data.root
         }
       );
     }
@@ -74,7 +73,8 @@ module.exports = function(we) {
       fields: fields,
       context: this,
        __: this.__ ,
-      controllAttrs: controllAttrs
+      controllAttrs: controllAttrs,
+      locals: options.data.root
     });
 
     return html;
