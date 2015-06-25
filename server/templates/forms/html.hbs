@@ -1,5 +1,5 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
-  <label for="{{fieldId}}">{{t fieldName}}</label>
+  <label for="{{fieldId}}">{{t fieldName}} {{template 'forms/required-mark'}}</label>
   <span class="help-block">{{error.message}}</span>
   <textarea id="{{fieldId}}" name="{{name}}" we-editor-height="{{field.formFieldHeight}}" we-editor-focus="{{field.formFieldFocus}}" we-editor-minheight="{{field.formFieldMinHeight}}" we-editor-maxheight="{{field.formFieldMaxHeight}}" class="form-control">{{value}}</textarea>
   <script>$(document).ready(function() {

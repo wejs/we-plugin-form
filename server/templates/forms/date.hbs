@@ -1,5 +1,5 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
-  <label for="{{fieldId}}">{{t fieldName}}</label>
+  <label for="{{fieldId}}">{{t fieldName}} {{template 'forms/required-mark'}}</label>
   <input id="{{fieldId}}" name="{{name}}" type="date" class="form-control" placeholder="{{t placeholder}}" {{fieldAttrs}} value="{{value}}">
   {{{field-help-error error}}}
 </div>
