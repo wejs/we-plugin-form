@@ -29,7 +29,8 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     'forms/number': __dirname + '/server/templates/forms/number.hbs',
     'forms/textarea': __dirname + '/server/templates/forms/textarea.hbs',
     'forms/html': __dirname + '/server/templates/forms/html.hbs',
-    'forms/boolean': __dirname + '/server/templates/forms/boolean.hbs'
+    'forms/boolean': __dirname + '/server/templates/forms/boolean.hbs',
+    'btn-modal-delete': __dirname + '/server/templates/forms/btn-modal-delete.hbs'
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {
