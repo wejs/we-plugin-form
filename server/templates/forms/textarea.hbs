@@ -2,6 +2,7 @@
   <label for="{{fieldId}}">{{t fieldName}}
     {{#ifCond field.allowNull false}}*{{/ifCond}}
   </label>
+  <p class="help-block">{{t help}}</p>
   <textarea id="{{fieldId}}" name="{{name}}" class="form-control" placeholder="{{t placeholder}}"  {{fieldAttrs}}>{{value}}</textarea>
   {{{field-help-error error}}}
 </div>

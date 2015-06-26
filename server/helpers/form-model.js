@@ -75,6 +75,7 @@ module.exports = function(we) {
           fieldId: formId + '-' + attrName,
           placeholder: 'form-placeholder-' + modelName + '-' + attrName,
           fieldOptions: fieldOptions,
+          help: 'form-helper-' + modelName + '-' + attrName,
           __: this.__,
           locals: options.data.root
         }

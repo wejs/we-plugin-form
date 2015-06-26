@@ -51,6 +51,7 @@ module.exports = function(we) {
           fieldName: 'form-' + formName + '-' + attrName,
           fieldId: formId + '-' + attrName,
           placeholder: 'form-placeholder-' + formName + '-' + attrName,
+          help: 'form-helper-' + formName + '-' + attrName,
           __: this.__,
           locals: options.data.root
         }
