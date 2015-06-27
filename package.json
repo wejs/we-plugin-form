@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "async": "^1.2.0",
-    "lodash": "^3.9.3"
+    "lodash": "^3.9.3",
+    "moment": "^2.10.3"
   },
   "devDependencies": {
     "fs-extra": "^0.18.2",

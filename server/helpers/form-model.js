@@ -3,6 +3,7 @@
  *
  * usage: {{{form-model modelName modelValue}}}
  */
+var moment = require('moment');
 
 module.exports = function(we) {
   return function renderHelper(modelName, values, errors) {
@@ -55,8 +56,11 @@ module.exports = function(we) {
 
       value = values[attrName];
 
-      if (!value) value = attr.defaultValue;
-      if (!value) value = '';
+      if (!value) {
+        value = attr.defaultValue || '';
+      } else if (value instanceof Date) {
+        value = moment(value).format('YYYY-MM-DD');
+      }
 
       if (attr.allowNull === false) fieldAttrs += ' required="required"';
 
