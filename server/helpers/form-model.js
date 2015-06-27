@@ -53,22 +53,8 @@ module.exports = function(we) {
       fieldAttrs = '';
 
       value = values[attrName];
-
       if (!value) {
         value = attr.defaultValue || '';
-      } else if (value instanceof Date) {
-        // convert date object to string format yyyy-MM-dd
-        var day = value.getDate().toString();
-        if (!day[1]) {
-          day = '0' + day;
-        }
-
-        var month = (value.getMonth() + 1).toString();
-        if (!month[1]) {
-          month = '0' + month;
-        }
-
-        value = value.getFullYear() + '-' + month + '-' + day;
       }
 
       if (attr.allowNull === false) fieldAttrs += ' required="required"';
