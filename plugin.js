@@ -3,16 +3,15 @@
  *
  * see http://wejs.org/docs/we/extend.plugin
  */
+var form = require('./lib');
+
 module.exports = function loadPlugin(projectPath, Plugin) {
   var plugin = new Plugin(__dirname);
   // set plugin configs
   // plugin.setConfigs({
-
   // });
-
-  // ser plugin routes
-  plugin.setRoutes({
-  });
+  // set plugin routes
+  // plugin.setRoutes({});
 
   plugin.setHelpers({
     'form':  __dirname + '/server/helpers/form.js',
@@ -37,18 +36,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {
-    we.form = {
-      // loaded forms
-      forms: {},
-      resolveField: {
-        'VARCHAR': 'text',
-        'TEXT': 'textarea',
-        'DATETIME': 'date',
-        'BIGINT': 'number',
-        'TINYINT': 'number',
-        'BOOLEAN': 'boolean'
-      }
-    };
+    we.form = form(we);
   });
 
   plugin.events.on('we:after:load:controllers', function(we) {
