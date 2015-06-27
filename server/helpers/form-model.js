@@ -3,8 +3,6 @@
  *
  * usage: {{{form-model modelName modelValue}}}
  */
-var moment = require('moment');
-
 module.exports = function(we) {
   return function renderHelper(modelName, values, errors) {
     if (!we.db.modelsConfigs[modelName]) {
@@ -59,7 +57,18 @@ module.exports = function(we) {
       if (!value) {
         value = attr.defaultValue || '';
       } else if (value instanceof Date) {
-        value = moment(value).format('YYYY-MM-DD');
+        // convert date object to string format yyyy-MM-dd
+        var day = value.getDate().toString();
+        if (!day[1]) {
+          day = '0' + day;
+        }
+
+        var month = (value.getMonth() + 1).toString();
+        if (!month[1]) {
+          month = '0' + month;
+        }
+
+        value = value.getFullYear() + '-' + month + '-' + day;
       }
 
       if (attr.allowNull === false) fieldAttrs += ' required="required"';
