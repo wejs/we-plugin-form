@@ -32,7 +32,9 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     'forms/html': __dirname + '/server/templates/forms/html.hbs',
     'forms/boolean': __dirname + '/server/templates/forms/boolean.hbs',
     'forms/email': __dirname + '/server/templates/forms/email.hbs',
-    'btn-modal-delete': __dirname + '/server/templates/forms/btn-modal-delete.hbs'
+    'btn-modal-delete': __dirname + '/server/templates/forms/btn-modal-delete.hbs',
+
+    'forms/break': __dirname + '/server/templates/forms/break.hbs',
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {
