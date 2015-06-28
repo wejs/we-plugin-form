@@ -21,41 +21,32 @@ module.exports = function(we) {
     if (!theme) theme = we.view.themes[we.view.appTheme];
 
     var html = '';
-    var fields = '';
-    var type, attr, value, fieldAttrs;
+    var fields = '<div class="we-form-fields">';
+    var attr, attrs, attrName;
 
-    for ( var attrName in we.form.forms[formName].fields) {
-      attr = we.form.forms[formName].fields[attrName];
-      type = typeof attr;
-      value = values[attrName];
-
-      if (!value) value = '';
-
-      fieldAttrs = '';
-
-      if (!value) value = attr.defaultValue;
-      if (!value) value = '';
-
-      if (attr.allowNull === false) fieldAttrs += ' required="required"';
-
-      // use type attr
-      fields += we.view.renderTemplate(
-        'forms/' + attr.type, theme,
-        {
-          value: value,
-          field: attr,
-          name: attrName,
-          error: (errors[attrName] || null),
-          formId: formId,
-          fieldAttrs: fieldAttrs,
-          fieldName: 'form-' + formName + '-' + attrName,
-          fieldId: formId + '-' + attrName,
-          placeholder: 'form-placeholder-' + formName + '-' + attrName,
-          help: 'form-helper-' + formName + '-' + attrName,
-          __: this.__,
-          locals: options.data.root
-        }
+    // form fields
+    attrs = we.form.forms[formName].fields;
+    for (attrName in attrs) {
+      attr = attrs[attrName];
+      fields += we.form.renderField (
+        attrName,attr, attrs, values, errors, theme, options.data.root, formId, formName
       );
+    }
+    // close we.js form fields
+    fields += '</div>';
+
+    // action fields
+    if (we.form.forms[formName].actions) {
+      attrs = we.form.forms[formName].actions;
+      fields += '<div class="we-form-actions">';
+      for (attrName in attrs) {
+        attr = attrs[attrName];
+        fields += we.form.renderField (
+          attrName,attr, attrs, values, errors, theme, options.data.root, formId, formName
+        );
+      }
+      // close we.js form actions
+      fields += '</div>';
     }
 
     var controllAttrs = '';

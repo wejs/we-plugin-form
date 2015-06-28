@@ -43,6 +43,8 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     for (var formName in we.config.forms) {
       we.form.forms[formName] = require(we.config.forms[formName]);
     }
+
+    plugin.events.emit('we:after:load:forms', we);
   });
 
   return plugin;

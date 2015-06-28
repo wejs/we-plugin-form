@@ -8,7 +8,7 @@ module.exports = function(we) {
   return function renderHelper(modelName, values, errors) {
     if (!we.form.varlidFormHelperAttrs(arguments)) return '';
     // set vars
-    var options, action, formId, theme, attrs;
+    var options, action, formId, theme, attrs, attr;
     var fields = '', controllAttrs = '';
 
     options = arguments[arguments.length-1];
@@ -28,8 +28,9 @@ module.exports = function(we) {
     attrs = we.db.modelsConfigs[modelName].definition;
     // get fields html
     for (var attrName in attrs) {
+      attr = attrs[attrName];
       fields += we.form.renderField (
-        attrName, attrs, values, errors, theme, options.data.root, formId, modelName
+        attrName, attr, attrs, values, errors, theme, options.data.root, formId, modelName, true
       );
     }
 
