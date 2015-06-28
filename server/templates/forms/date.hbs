@@ -1,5 +1,6 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
   <label for="{{fieldId}}">{{t fieldName}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
-  <input id="{{fieldId}}" name="{{name}}" type="date" class="form-control" placeholder="{{t placeholder}}" {{fieldAttrs}} value="{{value}}">
+  <input id="{{fieldId}}" name="{{name}}" type="date" class="form-control"
+    placeholder="{{t placeholder}}" {{fieldAttrs}} value="{{we-date value 'YYYY-MM-DD'}}">
   {{{field-help-error error}}}
 </div>

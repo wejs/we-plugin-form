@@ -3,7 +3,6 @@
  *
  * usage: {{{form-model modelName modelValue}}}
  */
-
 module.exports = function(we) {
   return function renderHelper(modelName, values, errors) {
     if (!we.form.varlidFormHelperAttrs(arguments)) return '';
@@ -23,7 +22,6 @@ module.exports = function(we) {
     // get theme naem
     theme = options.data.root.theme;
     if (!theme) theme = we.view.themes[we.view.appTheme].name;
-
 
     attrs = we.db.modelsConfigs[modelName].definition;
     // get fields html
