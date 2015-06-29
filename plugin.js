@@ -35,6 +35,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     'btn-modal-delete': __dirname + '/server/templates/forms/btn-modal-delete.hbs',
 
     'forms/break': __dirname + '/server/templates/forms/break.hbs',
+    'forms/terms-of-use': __dirname + '/server/templates/forms/terms-of-use.hbs'
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {
