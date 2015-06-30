@@ -28,6 +28,7 @@ module.exports = function(we) {
     attrs = we.form.forms[formName].fields;
     for (attrName in attrs) {
       attr = attrs[attrName];
+      if (!attr) continue;// skip if this attr is null
       fields += we.form.renderField (
         attrName,attr, attrs, values, errors, theme, options.data.root, formId, formName
       );
