@@ -1,6 +1,12 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
   <label for="{{fieldId}}">{{t fieldName}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
   <input id="{{fieldId}}" name="{{name}}" type="date" class="form-control"
-    placeholder="{{t placeholder}}" {{fieldAttrs}} value="{{we-date value 'YYYY-MM-DD'}}">
+    placeholder="{{t placeholder}}" {{fieldAttrs}} value="{{we-date value}}">
   {{{field-help-error error}}}
 </div>
+<script>$(function() {
+  $("#{{fieldId}}").datetimepicker({
+    altFieldTimeOnly: false,
+    altTimeFormat: "hh:mm",
+  });
+});</script>
