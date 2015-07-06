@@ -1,7 +1,7 @@
 {
   "name": "we-plugin-form",
   "description": "We.js we-plugin-form plugin",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "main": "lib/index.js",
   "scripts": {
     "lint": "./node_modules/.bin/jshint .",
@@ -19,7 +19,7 @@
     "mocha": "^2.2.5",
     "rimraf": "^2.3.4",
     "supertest": "^1.0.1",
-    "we-core": "^0.3.26",
+    "we-core": "wejs/we-core",
     "we-theme-admin-default": "^0.3.1",
     "we-theme-site-wejs": "^0.3.11",
     "we-test-tools": "^0.3.4"
