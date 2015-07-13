@@ -33,7 +33,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     'forms/boolean': __dirname + '/server/templates/forms/boolean.hbs',
     'forms/email': __dirname + '/server/templates/forms/email.hbs',
     'btn-modal-delete': __dirname + '/server/templates/forms/btn-modal-delete.hbs',
-
+    'btn-modal-save': __dirname + '/server/templates/forms/btn-modal-save.hbs',
     'forms/break': __dirname + '/server/templates/forms/break.hbs',
     'forms/terms-of-use': __dirname + '/server/templates/forms/terms-of-use.hbs'
   });
