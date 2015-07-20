@@ -16,7 +16,7 @@ module.exports = function(we) {
     if (!values) values = {};
 
     action = we.db.modelsConfigs[modelName].formAction;
-    if (!action) action = options.data.root.req.url;
+    if (!action) action = (options.data.root.req.originalUrl || options.data.root.req.url);
 
     formId = modelName;
     // get theme naem
