@@ -9,10 +9,12 @@
   {{#ifCond field.allowNull false}}*{{/ifCond}}
   {{{field-help-error error}}}
 </div>
-<script>$("#{{fieldId}}-selector").change(function() {
-  if (this.checked) {
-    $('#{{fieldId}}-data').val(1);
-  } else {
-    $('#{{fieldId}}-data').val(0);
-  }
+<script>$(document).ready(function() {
+  $("#{{fieldId}}-selector").change(function() {
+    if (this.checked) {
+      $('#{{fieldId}}-data').val(1);
+    } else {
+      $('#{{fieldId}}-data').val(0);
+    }
+  });
 });</script>
