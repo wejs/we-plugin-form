@@ -1,7 +1,7 @@
 {
   "name": "we-plugin-form",
   "description": "We.js we-plugin-form plugin",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "main": "lib/index.js",
   "scripts": {
     "lint": "./node_modules/.bin/jshint .",
@@ -25,7 +25,7 @@
     "we-test-tools": "^0.3.4"
   },
   "peerDependencies": {
-    "we-core": "~0.3"
+    "we-core": "^0.3"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
