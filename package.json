@@ -24,9 +24,6 @@
     "we-theme-site-wejs": "^0.3.11",
     "we-test-tools": "^0.3.4"
   },
-  "peerDependencies": {
-    "we-core": "^0.3"
-  },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
   },
