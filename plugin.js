@@ -36,7 +36,8 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     'btn-modal-save': __dirname + '/server/templates/forms/btn-modal-save.hbs',
     'forms/break': __dirname + '/server/templates/forms/break.hbs',
     'forms/terms-of-use': __dirname + '/server/templates/forms/terms-of-use.hbs',
-    'forms/static-text':  __dirname + '/server/templates/forms/static-text.hbs'
+    'forms/static-text':  __dirname + '/server/templates/forms/static-text.hbs',
+    'forms/hidden':  __dirname + '/server/templates/forms/hidden.hbs'
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {
