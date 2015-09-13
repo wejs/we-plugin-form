@@ -8,6 +8,8 @@ var _ = require('lodash');
 
 module.exports = function(we) {
   return function renderWidget(modelName, record, req) {
+    if (!record) return '';
+
     var roles = _.clone(req.userRoleNames);
     var options = arguments[arguments.length-1];
 
