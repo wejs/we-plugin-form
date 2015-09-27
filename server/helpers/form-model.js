@@ -1,10 +1,18 @@
 /**
  * Render we.js model form
  *
- * usage: {{{form-model modelName modelValue}}}
+ * Usage: {{{form-model model record validationError}}}
  */
+
 module.exports = function(we) {
-  return function renderHelper(modelName, values, errors) {
+  /**
+   * Form model helper
+   * @param  {String} modelName Model name, ex: user
+   * @param  {Object} values    Ex: record object from sequelize result
+   * @param  {Object} errors    res.locals.validationError variable
+   * @return {String}           html
+   */
+  return function renderFormModelHelper(modelName, values, errors) {
     if (!we.form.varlidFormHelperAttrs(arguments)) return '';
     // set vars
     var options, action, formId, theme, attrs, attr;

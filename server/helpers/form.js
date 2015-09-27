@@ -1,11 +1,18 @@
 /**
  * Render we.js form
  *
- * usage: {{{form formName valuesObject}}}
+ * usage: {{{form formName record validationError}}}
  */
 
 module.exports = function(we) {
-  return function form (formName, values, errors) {
+  /**
+   * Form json helper
+   * @param  {String} formName Form name, ex: user
+   * @param  {Object} values    Ex: record object from sequelize result
+   * @param  {Object} errors    res.locals.validationError variable
+   * @return {String}           html
+   */
+  return function renderFormHelper (formName, values, errors) {
     if (!we.form.forms[formName]) {
       we.log.warn('form '+ formName + ' not found in we.form object.');
       return '';
