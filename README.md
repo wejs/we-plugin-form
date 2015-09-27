@@ -1,14 +1,8 @@
 # we-plugin-form
 
-> [write something about your plugin here]
-
-# API
+> We.js form plugin with suport to json and model forms
 
 
 ## Links
 
 > * We.js site: http://wejs.org
-
-#Copyright and license
-
-Copyright 2013-2015 [your name] <[your email@email]> and contributors , under [the MIT license](LICENSE).
