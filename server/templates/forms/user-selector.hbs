@@ -1,0 +1,36 @@
+<div class="form-group {{#if error}}has-error has-feedback{{/if}}">
+  <label for="{{fieldId}}">{{t fieldName}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
+  {{{field-help-error error}}}
+
+  <select id="{{fieldId}}" name="{{field.fieldName}}"
+    class="form-control" {{fieldAttrs}}
+    {{#if field.formFieldMultiple}}multiple="multiple"{{/if}}>
+    {{#if values.users}}
+      <option value="{{values.users.id}}">{{values.users.displayName}}</option>
+    {{/if}}
+  </select>
+
+  <p class="help-block">{{t help}}</p>
+  {{{field-help-error error}}}
+</div>
+
+<script>$(document).ready(function() {
+  we.components.selectQuery.init('#{{fieldId}}', {
+    searchField: 'q',
+    cache: true,
+    url: function () {
+      return '/user';
+    },
+    processResults: function (data, params) {
+      if (!data || !data.user) return {};
+      return {
+        results: data.user.map(function(r, i) {
+          return {
+            text: ( r.displayName || r.username || r.id),
+            id: r.id
+          };
+        })
+      };
+    }
+  });
+});</script>
