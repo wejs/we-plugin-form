@@ -47,7 +47,7 @@ module.exports = function(we) {
       fields += '<input name="redirectTo" type="hidden" value="'+options.data.root.redirectTo+'">'
     }
 
-    return we.view.renderTemplate('forms/form-model', theme, {
+    return new we.hbs.SafeString(we.view.renderTemplate('forms/form-model', theme, {
       formId: formId,
       modelName: modelName,
       action: action,
@@ -56,6 +56,6 @@ module.exports = function(we) {
        __: this.__ ,
       controllAttrs: controllAttrs,
       locals: options.data.root
-    });
+    }));
   }
 }

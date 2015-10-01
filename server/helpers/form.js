@@ -77,6 +77,6 @@ module.exports = function(we) {
       locals: options.data.root
     });
 
-    return html;
+    return new we.hbs.SafeString(html);
   }
 }
