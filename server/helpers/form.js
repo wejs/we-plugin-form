@@ -1,7 +1,7 @@
 /**
  * Render we.js form
  *
- * usage: {{{form formName record validationError}}}
+ * usage: {{{form formName data validationError}}}
  */
 
 module.exports = function(we) {

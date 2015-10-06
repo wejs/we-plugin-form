@@ -1,7 +1,7 @@
 /**
  * Model action delete btn
  *
- * {{we-action-delete-btn modelName record [params...] req}}
+ * {{we-action-delete-btn modelName data [params...] req}}
  *
  */
 var _ = require('lodash');
