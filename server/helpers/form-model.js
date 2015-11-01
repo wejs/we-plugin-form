@@ -43,10 +43,6 @@ module.exports = function(we) {
 
     fields += we.form.renderRedirectField(options.data.root);
 
-    if (options.data.root.redirectTo) {
-      fields += '<input name="redirectTo" type="hidden" value="'+options.data.root.redirectTo+'">'
-    }
-
     return new we.hbs.SafeString(we.view.renderTemplate('forms/form-model', theme, {
       formId: formId,
       modelName: modelName,
