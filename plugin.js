@@ -8,6 +8,17 @@ var form = require('./lib');
 module.exports = function loadPlugin(projectPath, Plugin) {
   var plugin = new Plugin(__dirname);
 
+  // set plugin configs
+  plugin.setConfigs({
+    forms: {
+      'login': __dirname + '/server/forms/login.json',
+      'register': __dirname + '/server/forms/register.json',
+      'forgot-password': __dirname + '/server/forms/forgot-password.json',
+      'new-password': __dirname + '/server/forms/new-password.json',
+      'change-password': __dirname + '/server/forms/change-password.json'
+    }
+  });
+
   plugin.events.on('we:after:load:plugins', function (we) {
     we.form = form(we);
   });
