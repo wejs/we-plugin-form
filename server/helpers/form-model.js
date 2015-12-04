@@ -23,13 +23,15 @@ module.exports = function(we) {
 
     if (!values) values = {};
 
-    action = we.db.modelsConfigs[modelName].formAction;
-    if (!action) action = (options.data.root.req.originalUrl || options.data.root.req.url);
+    action = (
+      we.db.modelsConfigs[modelName].formAction ||
+      options.data.root.req.originalUrl ||
+      options.data.root.req.url
+    );
 
     formId = modelName;
     // get theme naem
-    theme = options.data.root.theme;
-    if (!theme) theme = we.view.themes[we.view.appTheme].name;
+    theme = options.data.root.theme || we.view.themes[we.view.appTheme].name;
 
     attrs = we.db.modelsConfigs[modelName].definition;
     // get fields html
@@ -38,6 +40,17 @@ module.exports = function(we) {
       if (!attr) continue;// skip if this attr is null
       fields += we.form.renderField (
         attrName, attr, attrs, values, errors, theme, options.data.root, formId, modelName, true
+      );
+    }
+
+    if (we.db.models[modelName].options.enableAlias &&
+      we.acl.canStatic('setAlias', options.data.root.req.userRoleNames)
+    ) {
+      fields += we.form.renderField (
+        'setAlias', {
+          linkPermanent: we.router.alias.forPath('/'+modelName+'/'+values.id),
+          formFieldType: 'url-alias'
+        }, attrs, values, errors, theme, options.data.root, formId, modelName, true
       );
     }
 

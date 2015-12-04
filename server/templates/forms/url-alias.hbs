@@ -1,0 +1,20 @@
+<div class="panel-group" id="accordion-fieldId" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion-fieldId" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <label for="{{fieldId}}">{{t fieldName}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
+          <input id="{{fieldId}}" name="{{name}}" type="{{field.type}}" class="form-control" placeholder="{{t placeholder}}" {{fieldAttrs}} value="{{field.linkPermanent}}">
+          <p class="help-block">{{t help}}</p>
+          {{{field-help-error error}}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
