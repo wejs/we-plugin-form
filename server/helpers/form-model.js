@@ -54,6 +54,7 @@ module.exports = function(we) {
       );
     }
 
+
     fields += we.form.renderRedirectField(options.data.root);
 
     return new we.hbs.SafeString(we.view.renderTemplate('forms/form-model', theme, {
@@ -64,7 +65,18 @@ module.exports = function(we) {
       context: this,
        __: this.__ ,
       controllAttrs: controllAttrs,
-      locals: options.data.root
+      locals: options.data.root,
+      // add createdAt and updatedAt fields
+      fieldCreatedAt: we.form.renderField (
+        'updatedAt', {
+          formFieldType: 'date'
+        }, attrs, values, errors, theme, options.data.root, formId, modelName, true
+      ),
+      fieldUpdatedAt: we.form.renderField (
+        'createdAt', {
+          formFieldType: 'date'
+        }, attrs, values, errors, theme, options.data.root, formId, modelName, true
+      )
     }));
   }
 }
