@@ -54,10 +54,9 @@ module.exports = function(we) {
       );
     }
 
-
     fields += we.form.renderRedirectField(options.data.root);
 
-    return new we.hbs.SafeString(we.view.renderTemplate('forms/form-model', theme, {
+    var formCfgs = {
       formId: formId,
       modelName: modelName,
       action: action,
@@ -66,17 +65,28 @@ module.exports = function(we) {
        __: this.__ ,
       controllAttrs: controllAttrs,
       locals: options.data.root,
-      // add createdAt and updatedAt fields
-      fieldCreatedAt: we.form.renderField (
+      editDateFields: false
+    }
+
+    // add createdAt and updatedAt fields if have permissions
+    if (we.acl.canStatic(modelName+'-edit-field-createdAt', options.data.root.req.userRoleNames)) {
+      formCfgs.fieldCreatedAt = we.form.renderField (
         'updatedAt', {
           formFieldType: 'date'
         }, attrs, values, errors, theme, options.data.root, formId, modelName, true
-      ),
-      fieldUpdatedAt: we.form.renderField (
+      );
+    }
+    if (we.acl.canStatic(modelName+'-edit-field-updatedAt', options.data.root.req.userRoleNames)) {
+      formCfgs.fieldUpdatedAt = we.form.renderField (
         'createdAt', {
           formFieldType: 'date'
         }, attrs, values, errors, theme, options.data.root, formId, modelName, true
       )
-    }));
+    }
+
+    if (formCfgs.fieldCreatedAt || formCfgs.fieldUpdatedAt)
+      formCfgs.editDateFields = true;
+
+    return new we.hbs.SafeString(we.view.renderTemplate('forms/form-model', theme, formCfgs));
   }
 }

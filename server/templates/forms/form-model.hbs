@@ -1,21 +1,25 @@
 <form id="{{formId}}" name="{{modelName}}" class="{{class}}" {{{controllAttrs}}}action="{{action}}" method="post">
 {{{fields}}}
-<div class="panel-group" id="accordion-createdAt-and-updatedAt" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="heading-createdAt-and-updatedAt">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion-createdAt-and-updatedAt" href="#collapse-createdAt-and-updatedAt" aria-expanded="true" aria-controls="collapse-createdAt-and-updatedAt">
-          {{t 'createdAt'}} / {{t 'updatedAt'}} +
-        </a>
-      </h4>
-    </div>
-    <div  id="collapse-createdAt-and-updatedAt" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-createdAt-and-updatedAt">
-      <div class="panel-body">
-        {{{fieldCreatedAt}}}
-        {{{fieldUpdatedAt}}}
+
+{{#if editDateFields}}
+  <div class="panel-group" id="accordion-createdAt-and-updatedAt" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="heading-createdAt-and-updatedAt">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion-createdAt-and-updatedAt" href="#collapse-createdAt-and-updatedAt" aria-expanded="true" aria-controls="collapse-createdAt-and-updatedAt">
+            {{t 'createdAt'}} / {{t 'updatedAt'}} +
+          </a>
+        </h4>
+      </div>
+      <div  id="collapse-createdAt-and-updatedAt" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-createdAt-and-updatedAt">
+        <div class="panel-body">
+          {{{fieldCreatedAt}}}
+          {{{fieldUpdatedAt}}}
+        </div>
       </div>
     </div>
   </div>
-</div>
+{{/if}}
+
 <button type="submit" class="btn btn-primary">{{t 'Save'}}</button>
 </form>
