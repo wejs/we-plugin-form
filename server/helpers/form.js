@@ -68,6 +68,7 @@ module.exports = function(we) {
       formId: formId,
       formName: formName,
       form: we.form.forms[formName],
+      action: options.hash.action || we.form.forms[formName].action,
       fields: fields,
       context: this,
        __: this.__ ,
