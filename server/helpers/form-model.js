@@ -15,7 +15,7 @@ module.exports = function(we) {
   return function renderFormModelHelper(modelName, values, errors) {
     if (!we.form.varlidFormHelperAttrs(arguments)) return '';
     // set vars
-    var options, action, formId, theme, attrs, attr;
+    var options, action, formId, theme, attrs, attr, destroyLink;
     var fields = '', controllAttrs = '';
 
     options = arguments[arguments.length-1];
@@ -56,6 +56,13 @@ module.exports = function(we) {
 
     fields += we.form.renderRedirectField(options.data.root);
 
+    // if is one sequelize record and have getUrlPath:
+    if (values.getUrlPath) {
+      destroyLink = values.getUrlPath() + '/delete';
+      if (options.data.root.redirectTo)
+        destroyLink +='?redirectTo='+ options.data.root.redirectTo;
+    }
+
     var formCfgs = {
       formId: formId,
       modelName: modelName,
@@ -65,7 +72,9 @@ module.exports = function(we) {
        __: this.__ ,
       controllAttrs: controllAttrs,
       locals: options.data.root,
-      editDateFields: false
+      editDateFields: false,
+      values: values,
+      destroyLink: destroyLink
     }
 
     // add createdAt and updatedAt fields if have permissions

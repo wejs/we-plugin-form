@@ -22,4 +22,10 @@
 {{/if}}
 
 <button type="submit" class="btn btn-primary">{{t 'Save'}}</button>
+{{#if locals.redirectTo}}
+<a href="{{locals.redirectTo}}" class="btn btn-default">{{t 'Cancel'}}</a>
+{{/if}}
+{{#if values}}
+ | <a href="{{destroyLink}}" class="btn btn-danger">{{t 'Delete'}}</a>
+{{/if}}
 </form>
