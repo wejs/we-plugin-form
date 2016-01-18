@@ -1,7 +1,7 @@
 /**
  * Render we.js model form
  *
- * Usage: {{{form-model model data validationError}}}
+ * Usage: {{{form-model model data validationError locals=locals}}}
  */
 var crypto = require('crypto');
 
@@ -30,6 +30,7 @@ module.exports = function(we) {
     if (!values) values = {};
 
     action = (
+      options.hash.action ||
       we.db.modelsConfigs[modelName].formAction ||
       locals.req.originalUrl ||
       locals.req.url
