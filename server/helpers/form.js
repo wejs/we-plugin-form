@@ -3,6 +3,7 @@
  *
  * usage: {{{form formName data validationError}}}
  */
+var crypto = require('crypto');
 
 module.exports = function(we) {
   /**
@@ -18,10 +19,12 @@ module.exports = function(we) {
       return '';
     }
 
+    var uuid = crypto.randomBytes(20).toString('hex');
+
     var options = arguments[arguments.length-1];
     if (!errors) errors = {};
 
-    var formId = formName;
+    var formId = formName + '-' + uuid;
     if (!values) values = {};
 
     var theme = options.data.root.theme;
@@ -73,7 +76,8 @@ module.exports = function(we) {
       context: this,
        __: this.__ ,
       controllAttrs: controllAttrs,
-      locals: options.data.root
+      locals: options.data.root,
+      uuid: uuid
     });
 
     return new we.hbs.SafeString(html);
