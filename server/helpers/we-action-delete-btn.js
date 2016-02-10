@@ -29,7 +29,7 @@ module.exports = function(we) {
         params.push(arguments[i]);
       }
 
-      var redirectTo = req.url || options.hash.redirectTo;
+      var redirectTo = options.hash.redirectTo || req.url;
 
       return new we.hbs.SafeString(we.view.renderTemplate('model/delete-btn', req.res.locals.theme, {
         url: we.router.urlTo(modelName + '.delete', params)+ '?redirectTo='+ redirectTo,

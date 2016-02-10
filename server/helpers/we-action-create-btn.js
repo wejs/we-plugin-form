@@ -11,7 +11,7 @@ module.exports = function(we) {
     var roles = _.clone(req.userRoleNames);
     var options = arguments[arguments.length-1];
 
-    var redirectTo = req.url || options.hash.redirectTo;
+    var redirectTo = options.hash.redirectTo || req.url;
 
     if (we.acl.canStatic('create_' + modelName, roles)) {
       var params = [];
