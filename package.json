@@ -1,7 +1,7 @@
 {
   "name": "we-plugin-form",
   "description": "We.js we-plugin-form plugin",
-  "version": "0.3.29",
+  "version": "0.3.30",
   "main": "lib/index.js",
   "scripts": {
     "lint": "./node_modules/.bin/jshint .",
