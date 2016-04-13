@@ -22,4 +22,53 @@ window.addEventListener('WebComponentsReady', function() {
   document.registerElement('we-checkbox', {
     prototype: WeCheckboxPrototype
   });
+
+  var WeDatetiemPickerPrototype = Object.create(HTMLElement.prototype);
+  WeDatetiemPickerPrototype.createdCallback = function() {
+    var self = this;
+
+    var viewformat = this.dataset.viewformat;
+
+    var $element = $(self);
+
+    var $input = $element.children('input');
+    var input = $input[0];
+
+    var $viewInput = $input.clone();
+
+    input.type = 'hidden';
+    input.removeAttribute('value');
+    // add disabled attr to skip post if not changed
+    input.setAttribute('disabled', 'disabled');
+
+    $viewInput.removeAttr('name');
+    $viewInput.attr('id', $viewInput[0].id + '-picker');
+
+    var $wrapper = $('<div class="row"><div class="col-sm-12"></div></div>');
+    $wrapper.children().append($viewInput);
+
+    $element.append($wrapper);
+
+    // add the datepicker
+    $(function() {
+      $viewInput.datetimepicker({
+        format: viewformat,
+        locale: window.WE_BOOTSTRAP_CONFIG.locale || 'en-us'
+      })
+      .on('dp.change', function onChangeViewInput(e) {
+        if (e.date) {
+          input.removeAttribute('disabled');
+          input.value = e.date.toISOString();
+        } else {
+          input.setAttribute('disabled', 'disabled');
+          input.value = '';
+        }
+      });
+    });
+  };
+
+  document.registerElement('we-datetime-picker', {
+    prototype: WeDatetiemPickerPrototype
+  });
+
 });
