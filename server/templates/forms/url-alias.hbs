@@ -11,7 +11,7 @@
       <div class="panel-body">
         <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
           <label for="{{fieldId}}">{{t fieldName}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
-          <input id="{{fieldId}}" name="{{name}}" type="{{field.type}}" class="form-control" placeholder="{{t placeholder}}" {{fieldAttrs}} value="{{field.linkPermanent}}">
+          <input id="{{fieldId}}" name="{{name}}" type="{{field.type}}" class="form-control" placeholder="{{t placeholder}}" {{{fieldAttrs}}} value="{{field.linkPermanent}}">
           <p class="help-block">{{t help}}</p>
           {{{field-help-error error}}}
         </div>

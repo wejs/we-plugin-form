@@ -1,12 +1,9 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
   <label for="{{fieldId}}">{{t fieldName}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
-  <input id="{{fieldId}}" name="{{name}}" type="text" class="form-control"
-    placeholder="{{t placeholder}}" {{fieldAttrs}} value="{{we-date value}}">
+
+  <we-datetime-picker data-viewformat="{{locals.req.we.config.date.defaultFormat}}">
+    <input id="{{fieldId}}" name="{{name}}" type="text" class="form-control" placeholder="{{t placeholder}}" {{{fieldAttrs}}} value="{{we-date value locals=locals}}" >
+  </we-datetime-picker>
+
   {{{field-help-error error}}}
 </div>
-<script>$(function() {
-  $("#{{fieldId}}").datetimepicker({
-    altFieldTimeOnly: false,
-    altTimeFormat: "hh:mm",
-  });
-});</script>

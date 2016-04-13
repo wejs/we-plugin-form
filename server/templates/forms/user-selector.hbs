@@ -3,7 +3,7 @@
   {{{field-help-error error}}}
 
   <select id="{{fieldId}}" name="{{field.fieldName}}"
-    class="form-control" {{fieldAttrs}}
+    class="form-control" {{{fieldAttrs}}}
     {{#if field.formFieldMultiple}}multiple="multiple"{{/if}}>
     {{#if values.users}}
       <option value="{{values.users.id}}">{{values.users.displayName}}</option>
