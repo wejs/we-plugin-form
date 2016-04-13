@@ -3,8 +3,6 @@
  */
 
 window.addEventListener('WebComponentsReady', function() {
-  // -- we-checkbox custom
-  // usage: <we-checkbox value="{{id}}" data-style="thumbnail"></we-checkbox>
   var WeCheckboxPrototype = Object.create(HTMLElement.prototype);
   WeCheckboxPrototype.createdCallback = function createdCallback() {
     this.selector = this.children[0];
