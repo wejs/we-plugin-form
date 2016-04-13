@@ -31,5 +31,10 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     plugin.events.emit('we:after:load:forms', we);
   });
 
+  plugin.addJs('we-form', {
+    type: 'plugin', weight: 10, pluginName: 'we-plugin-form',
+    path: 'files/public/we-form.js'
+  });
+
   return plugin;
 };

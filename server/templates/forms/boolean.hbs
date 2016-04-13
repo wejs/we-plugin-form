@@ -1,20 +1,12 @@
-<div id="{{fieldId}}" class="checkbox {{#if error}}has-error has-feedback{{/if}}">
+<div id="{{fieldId}}-wrapper" class="checkbox {{#if error}}has-error has-feedback{{/if}}">
   <label>
-    <input id="{{fieldId}}-selector" value="true" type="checkbox" {{{fieldAttrs}}}{{#if value}}checked="checked"{{/if}}>
+    <we-checkbox id="{{fieldId}}">
+      <input type="checkbox" {{{fieldAttrs}}}{{#if value}}checked="checked"{{/if}} />
+      <input type="hidden" name="{{name}}" value="{{value}}">
+    </we-checkbox>
     <strong>{{t fieldName}}</strong>
   </label>
-
-  <input id="{{fieldId}}-data" type="hidden" name="{{name}}" value="{{value}}">
 
   {{#ifCond field.allowNull false}}*{{/ifCond}}
   {{{field-help-error error}}}
 </div>
-<script>$(document).ready(function() {
-  $("#{{fieldId}}-selector").change(function() {
-    if (this.checked) {
-      $('#{{fieldId}}-data').val('true');
-    } else {
-      $('#{{fieldId}}-data').val('false');
-    }
-  });
-});</script>
