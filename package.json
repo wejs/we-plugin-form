@@ -37,7 +37,8 @@
     "plugin.js",
     "server/",
     "client/",
-    "lib/"
+    "lib/",
+    "files/public"
   ],
   "author": "Alberto Souza <alberto.souza.dev@gmail.com>",
   "license": "ISC"
