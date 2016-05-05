@@ -49,10 +49,17 @@ window.addEventListener('WebComponentsReady', function() {
 
     $element.append($wrapper);
 
+    if (self.dataset.maxDate) {
+      var d = new Date(self.dataset.maxDate);
+      self.dataset.maxDate = d.toISOString();
+    }
+
     // add the datepicker
     $(function() {
       $viewInput.datetimepicker({
         format: viewformat,
+        // minDate: self.dataset.minDate,
+        maxDate: self.dataset.maxDate,
         locale: window.WE_BOOTSTRAP_CONFIG.locale || 'en-us'
       })
       .on('dp.change', function onChangeViewInput(e) {
