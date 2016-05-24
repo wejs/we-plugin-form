@@ -1,36 +1,27 @@
 {
   "name": "we-plugin-form",
-  "description": "We.js we-plugin-form plugin",
-  "version": "0.3.34",
-  "main": "lib/index.js",
+  "description": "We.js forms plugin",
+  "version": "1.0.0",
+  "main": "plugin.js",
   "scripts": {
-    "lint": "./node_modules/.bin/jshint .",
-    "test": "NODE_ENV=test LOG_LV=info ./node_modules/.bin/mocha test/bootstrap.js test/**/*.test.js",
-    "prepublish": "npm prune"
+    "test": "NODE_ENV=test LOG_LV=info ./node_modules/.bin/mocha test/bootstrap.js test/**/*.test.js"
   },
   "dependencies": {
-    "async": "^1.2.0",
-    "lodash": "^3.9.3"
+    "async": "^2.0.0-rc.5",
+    "lodash": "^4.13.1"
   },
   "devDependencies": {
-    "fs-extra": "^0.18.2",
-    "istanbul": "^0.3.14",
-    "jshint": "^2.8.0",
-    "mocha": "^2.2.5",
-    "rimraf": "^2.3.4",
-    "supertest": "^1.0.1",
+    "fs-extra": "^0.30.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.5.2",
+    "rimraf": "^2.5.2",
+    "supertest": "^1.2.0",
     "we-core": "wejs/we-core",
-    "we-theme-admin-default": "^0.3.1",
-    "we-theme-site-wejs": "^0.3.11",
-    "we-test-tools": "^0.3.4"
+    "we-theme-admin-default": "wejs/we-theme-admin-default",
+    "we-theme-site-wejs": "wejs/we-theme-site-wejs",
+    "we-test-tools": "wejs/we-test-tools"
   },
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:wejs/we-plugin-form.git"
-  },
+  "repository": "wejs/we-plugin-form",
   "files": [
     "LICENSE",
     "README.md",
