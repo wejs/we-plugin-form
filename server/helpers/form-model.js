@@ -50,16 +50,18 @@ module.exports = function(we) {
       );
     }
 
-    if (we.db.models[modelName].options.enableAlias &&
-      we.acl.canStatic('setAlias', locals.req.userRoleNames)
-    ) {
-      fields += we.form.renderField (
-        'setAlias', {
-          linkPermanent: we.router.alias.forPath('/'+modelName+'/'+values.id),
-          formFieldType: 'url-alias'
-        }, attrs, values, errors, theme, locals, formId, modelName, true
-      );
-    }
+    // if (
+    //   we.plugins['we-plugin-url-alias'] &&
+    //   we.db.models[modelName].options.enableAlias &&
+    //   we.acl.canStatic('setAlias', locals.req.userRoleNames)
+    // ) {
+    //   fields += we.form.renderField (
+    //     'setAlias', {
+    //       linkPermanent: '/'+modelName+'/'+values.id,
+    //       formFieldType: 'url-alias'
+    //     }, attrs, values, errors, theme, locals, formId, modelName, true
+    //   );
+    // }
 
     fields += we.form.renderRedirectField(locals);
 

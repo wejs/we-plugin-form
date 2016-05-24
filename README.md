@@ -1,6 +1,6 @@
 # We.js plugin form
 
-> Add suport to json forms and model forms
+Add suport to json forms and model forms
 
 Documentation: http://wejs.org/docs/we/forms
 
@@ -9,7 +9,7 @@ Documentation: http://wejs.org/docs/we/forms
 In your we.js project:
 
 ```sh
-npm install --save we-plugin-form
+npm install --save we-plugin-form we-plugin-view
 ```
 
 ## Links
