@@ -9,7 +9,7 @@ Documentation: http://wejs.org/docs/we/forms
 In your we.js project:
 
 ```sh
-npm install --save we-plugin-form we-plugin-view
+we i we-plugin-form
 ```
 
 ## Links
