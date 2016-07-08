@@ -27,6 +27,7 @@
   ],
   "wejs": {
     "dependencies": {
+      "we-plugin-acl": true,
       "we-plugin-view": true
     }
   }
