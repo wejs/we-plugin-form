@@ -3,7 +3,7 @@
  *
  * Usage: {{{form-model model data validationError locals=locals}}}
  */
-var crypto = require('crypto');
+const crypto = require('crypto');
 
 module.exports = function(we) {
   /**
@@ -16,16 +16,16 @@ module.exports = function(we) {
   return function renderFormModelHelper(modelName, values, errors) {
     if (!we.form.varlidFormHelperAttrs(arguments)) return '';
 
-    var uuid = crypto.randomBytes(20).toString('hex');
+    let uuid = crypto.randomBytes(20).toString('hex');
 
     // set vars
-    var options, action, formId, theme, attrs, attr, destroyLink;
-    var fields = '', controllAttrs = '';
+    let options, action, formId, theme, attrs, attr, destroyLink;
+    let fields = '', controllAttrs = '';
 
     options = arguments[arguments.length-1];
     if (arguments.length < 4 || !errors) errors = {};
 
-    var locals = options.hash.locals || options.data.root;
+    let locals = options.hash.locals || options.data.root;
 
     if (!values) values = {};
 
@@ -42,7 +42,7 @@ module.exports = function(we) {
 
     attrs = we.db.modelsConfigs[modelName].definition;
     // get fields html
-    for (var attrName in attrs) {
+    for (let attrName in attrs) {
       attr = attrs[attrName];
       if (!attr) continue;// skip if this attr is null
       fields += we.form.renderField (
@@ -72,7 +72,7 @@ module.exports = function(we) {
         destroyLink +='?redirectTo='+ locals.redirectTo;
     }
 
-    var formCfgs = {
+    let formCfgs = {
       formId: formId,
       modelName: modelName,
       action: action,

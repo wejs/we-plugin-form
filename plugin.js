@@ -3,10 +3,10 @@
  *
  * see http://wejs.org/docs/we/extend.plugin
  */
-var form = require('./lib');
+const form = require('./lib');
 
 module.exports = function loadPlugin(projectPath, Plugin) {
-  var plugin = new Plugin(__dirname);
+  const plugin = new Plugin(__dirname);
 
   // set plugin configs
   plugin.setConfigs({
@@ -23,8 +23,8 @@ module.exports = function loadPlugin(projectPath, Plugin) {
     we.form = form(we);
   });
 
-  plugin.events.on('we:after:load:controllers', function(we) {
-    for (var formName in we.config.forms) {
+  plugin.events.on('we:after:load:controllers', function (we) {
+    for (let formName in we.config.forms) {
       we.form.forms[formName] = require(we.config.forms[formName]);
     }
 

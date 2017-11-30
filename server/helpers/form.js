@@ -3,7 +3,7 @@
  *
  * usage: {{{form formName data validationError}}}
  */
-var crypto = require('crypto');
+const crypto = require('crypto');
 
 module.exports = function(we) {
   /**
@@ -19,20 +19,20 @@ module.exports = function(we) {
       return '';
     }
 
-    var uuid = crypto.randomBytes(20).toString('hex');
+    let uuid = crypto.randomBytes(20).toString('hex');
 
-    var options = arguments[arguments.length-1];
+    let options = arguments[arguments.length-1];
     if (!errors) errors = {};
 
-    var formId = formName + '-' + uuid;
+    let formId = formName + '-' + uuid;
     if (!values) values = {};
 
-    var theme = options.data.root.theme;
+    let theme = options.data.root.theme;
     if (!theme) theme = we.view.themes[we.view.appTheme];
 
-    var html = '';
-    var fields = '<div class="we-form-fields">';
-    var attr, attrs, attrName;
+    let html = '';
+    let fields = '<div class="we-form-fields">';
+    let attr, attrs, attrName;
 
     // form fields
     attrs = we.form.forms[formName].fields;
@@ -60,7 +60,7 @@ module.exports = function(we) {
       fields += '</div>';
     }
 
-    var controllAttrs = '';
+    let controllAttrs = '';
     if (we.form.forms[formName].actionType) {
       controllAttrs += ' we-submit="'+we.form.forms[formName].actionType+'" ';
     }

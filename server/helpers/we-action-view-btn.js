@@ -4,13 +4,13 @@
  * {{we-action-view-btn modelName [params...] req}}
  *
  */
-var _ = require('lodash');
+let _ = require('lodash');
 
 module.exports = function(we) {
   return function renderWidget(modelName, record, req) {
     if (!record) return '';
 
-    var roles = _.clone(req.userRoleNames);
+    let roles = _.clone(req.userRoleNames);
 
     // if is authenticated, check if are owner
     if (req.isAuthenticated()) {
@@ -25,8 +25,8 @@ module.exports = function(we) {
 
 
     if (we.acl.canStatic('find_' + modelName, roles)) {
-      var params = [];
-      for (var i = 3; i < arguments.length-1; i++) {
+      let params = [];
+      for (let i = 3; i < arguments.length-1; i++) {
         params.push(arguments[i]);
       }
 

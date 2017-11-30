@@ -4,14 +4,14 @@
  * {{we-action-delete-btn modelName data [params...] req}}
  *
  */
-var _ = require('lodash');
+const _ = require('lodash');
 
 module.exports = function(we) {
   return function renderWidget(modelName, record, req) {
     if (!record) return '';
 
-    var roles = _.clone(req.userRoleNames);
-    var options = arguments[arguments.length-1];
+    let roles = _.clone(req.userRoleNames);
+    let options = arguments[arguments.length-1];
     // if is authenticated, check if are owner
     if (req.isAuthenticated()) {
       if (record.isOwner(req.user.id)) {
@@ -24,12 +24,12 @@ module.exports = function(we) {
     }
 
     if (we.acl.canStatic('delete_' + modelName, roles)) {
-      var params = [];
-      for (var i = 3; i < arguments.length-1; i++) {
+      let params = [];
+      for (let i = 3; i < arguments.length-1; i++) {
         params.push(arguments[i]);
       }
 
-      var redirectTo = options.hash.redirectTo || req.url;
+      let redirectTo = options.hash.redirectTo || req.url;
 
       return new we.hbs.SafeString(we.view.renderTemplate('model/delete-btn', req.res.locals.theme, {
         url: we.router.urlTo(modelName + '.delete', params)+ '?redirectTo='+ redirectTo,

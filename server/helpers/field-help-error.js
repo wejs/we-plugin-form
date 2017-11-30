@@ -8,8 +8,8 @@ module.exports = function() {
   return function renderHelper(errors) {
     if (!errors) return '';
 
-    var html = '';
-    for (var i = 0; i < errors.length; i++) {
+    let html = '';
+    for (let i = 0; i < errors.length; i++) {
       html += '<span class="help-block">'+errors[i].message+ '</span>'
     }
 
