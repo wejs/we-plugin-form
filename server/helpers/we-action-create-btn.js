@@ -4,9 +4,10 @@
  * {{we-action-create-btn modelName [params...] req}}
  *
  */
-const _ = require('lodash');
 
 module.exports = function(we) {
+  const _ = we.utils._;
+
   return function renderWidget(modelName, req) {
     const roles = _.clone(req.userRoleNames);
     const options = arguments[arguments.length-1];

@@ -4,9 +4,10 @@
  * {{we-action-edit-btn modelName record [params...] req}}
  *
  */
-let _ = require('lodash');
 
 module.exports = function(we) {
+  const _ = we.utils._;
+
   return function renderWidget(modelName, record, req) {
     if (!record) return '';
 

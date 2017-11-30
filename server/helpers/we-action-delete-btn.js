@@ -4,9 +4,9 @@
  * {{we-action-delete-btn modelName data [params...] req}}
  *
  */
-const _ = require('lodash');
-
 module.exports = function(we) {
+  const _ = we.utils._;
+
   return function renderWidget(modelName, record, req) {
     if (!record) return '';
 

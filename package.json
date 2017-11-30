@@ -3,20 +3,11 @@
   "description": "We.js forms plugin",
   "version": "1.1.1",
   "main": "plugin.js",
-  "scripts": {
-    "test": "NODE_ENV=test LOG_LV=info ./node_modules/.bin/mocha test/bootstrap.js test/**/*.test.js"
-  },
-  "dependencies": {
-    "async": "^2.0.0-rc.5",
-    "lodash": "^4.13.1"
-  },
   "repository": "wejs/we-plugin-form",
   "files": [
-    "LICENSE",
     "README.md",
     "plugin.js",
     "server/",
-    "client/",
     "lib/",
     "files/public"
   ],
