@@ -1,9 +1,10 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
-  <label for="{{fieldId}}">{{t fieldName}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
+  <label for="{{fieldId}}">{{{label}}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
 
-  <we-datetime-picker data-viewformat="{{locals.req.we.config.date.defaultFormat}}">
-    <input id="{{fieldId}}" name="{{name}}" type="text" class="form-control" placeholder="{{t placeholder}}" {{{fieldAttrs}}} value="{{we-date value locals=locals}}" >
+  <we-datetime-picker {{#unless field.formFieldAttributes.data-viewformat}}data-viewformat="{{locals.req.we.config.date.defaultFormat}}"{{/unless}} {{{fieldAttrs}}} >
+    <input id="{{fieldId}}" name="{{name}}" type="text" class="form-control" placeholder="{{{placeholder}}}" {{{fieldAttrs}}} value="{{we-date value locals=locals}}" >
   </we-datetime-picker>
+  <p class="help-block">{{{help}}}</p>
 
   {{{field-help-error error}}}
 </div>

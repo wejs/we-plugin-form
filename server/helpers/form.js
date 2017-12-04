@@ -40,7 +40,15 @@ module.exports = function(we) {
       attr = attrs[attrName];
       if (!attr) continue;// skip if this attr is null
       fields += we.form.renderField (
-        attrName,attr, attrs, values, errors, theme, options.data.root, formId, formName
+        attrName,
+        attr,
+        attrs,
+        values,
+        errors,
+        theme,
+        options.data.root,
+        formId,
+        formName
       );
     }
     // close we.js form fields

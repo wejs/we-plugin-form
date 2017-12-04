@@ -1,8 +1,8 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
-  <label for="{{fieldId}}">{{t fieldName}}
+  <label for="{{fieldId}}">{{{label}}}
     {{#ifCond field.allowNull false}}*{{/ifCond}}
   </label>
-  <p class="help-block">{{t help}}</p>
-  <textarea id="{{fieldId}}" name="{{name}}" class="form-control" placeholder="{{t placeholder}}"  {{{fieldAttrs}}}>{{value}}</textarea>
+  <p class="help-block">{{{help}}}</p>
+  <textarea id="{{fieldId}}" name="{{name}}" class="form-control" placeholder="{{{placeholder}}}"  {{{fieldAttrs}}}>{{value}}</textarea>
   {{{field-help-error error}}}
 </div>

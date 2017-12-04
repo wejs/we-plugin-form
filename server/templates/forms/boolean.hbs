@@ -4,7 +4,7 @@
       <input type="checkbox" {{{fieldAttrs}}}{{#if value}}checked="checked"{{/if}} />
       <input type="hidden" name="{{name}}" value="{{value}}">
     </we-checkbox>
-    <strong>{{t fieldName}}</strong>
+    <strong>{{{label}}}</strong>
   </label>
 
   {{#ifCond field.allowNull false}}*{{/ifCond}}

@@ -1,11 +1,11 @@
 <div class="form-group {{#if error}}has-error has-feedback{{/if}}">
   {{#can permission='manage_users' roleNames=this.locals.req.userRoleNames}}
-    <label for="{{fieldId}}">{{t fieldName}}{{#ifCond field.allowNull false}}*{{/ifCond}}
+    <label for="{{fieldId}}">{{{label}}}{{#ifCond field.allowNull false}}*{{/ifCond}}
     </label>
-    <input id="{{fieldId}}" name="{{name}}" type="email" class="form-control" placeholder="{{t placeholder}}" {{{fieldAttrs}}} value="{{value}}">
+    <input id="{{fieldId}}" name="{{name}}" type="email" class="form-control" placeholder="{{{placeholder}}}" {{{fieldAttrs}}} value="{{value}}">
     <p class="help-block">{{t help}}</p>
   {{else}}
-    <label for="{{fieldId}}">{{t fieldName}}:</label> {{value}}
+    <label for="{{fieldId}}">{{{label}}}:</label> {{value}}
   {{/can}}
 
   {{{field-help-error error}}}

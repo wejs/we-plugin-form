@@ -1,6 +1,6 @@
 <div class="checkbox {{#if error}}has-error has-feedback{{/if}}">
   <label>
-    <input id="{{fieldId}}" name="{{name}}" value="true" type="checkbox" {{{fieldAttrs}}}{{#if value}} checked="checked"{{/if}}> {{t fieldName}} *
+    <input id="{{fieldId}}" name="{{name}}" value="true" type="checkbox" {{{fieldAttrs}}}{{#if value}} checked="checked"{{/if}}> {{{label}}} *
     <p><strong>{{{t help}}}</strong></p>
   </label>
   {{{field-help-error error}}}
