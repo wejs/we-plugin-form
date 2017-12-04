@@ -1,7 +1,7 @@
 {
   "name": "we-plugin-form",
   "description": "We.js forms plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "plugin.js",
   "repository": "wejs/we-plugin-form",
   "files": [
