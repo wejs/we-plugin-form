@@ -1,22 +1,14 @@
 {
   "title": "auth.login.title",
 
-
   "method": "post",
   "action": "/signup",
 
   "fields": {
-    "username": {
-      "type": "text",
-      "defaultValue": "",
-      "allowNull": false
-    },
-
     "fullName": {
       "type": "text",
       "defaultValue": ""
     },
-
     "gender": {
       "type": "select",
       "allowNull": false,
@@ -25,7 +17,6 @@
         "F": "Female"
       }
     },
-
     "password": {
       "type": "password",
       "defaultValue": "",
@@ -36,7 +27,6 @@
       "defaultValue": "",
       "allowNull": false
     },
-
     "email": {
       "type": "email",
       "defaultValue": "",
@@ -47,15 +37,6 @@
       "defaultValue": "",
       "allowNull": false
     },
-
-    "organization": {
-      "type": "vocabulary/tag",
-      "defaultValue": "",
-      "vocabularyName": "Organization",
-      "canCreate": true,
-      "formFieldMultiple": false
-    },
-
     "recaptcha": {
       "type": "recaptcha"
     }
@@ -67,7 +48,6 @@
       "allowNull": false,
       "defaultValue": false
     },
-
     "actionsSeparator": { "type": "break" },
     "submit": {
       "type": "submit"
