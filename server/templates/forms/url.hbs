@@ -1,0 +1,6 @@
+<div class="form-group {{#if error}}has-error has-feedback{{/if}}">
+  <label for="{{fieldId}}">{{{label}}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
+  <input id="{{fieldId}}" name="{{name}}" type="url" class="form-control" placeholder="{{{placeholder}}}" {{{fieldAttrs}}} value="{{value}}">
+  <p class="help-block">{{{help}}}</p>
+  {{{field-help-error error}}}
+</div>
