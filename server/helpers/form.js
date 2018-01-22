@@ -34,6 +34,8 @@ module.exports = function(we) {
     let fields = '<div class="we-form-fields">';
     let attr, attrs, attrName;
 
+    const locals = (options.hash.locals || options.data.root);
+
     // form fields
     attrs = we.form.forms[formName].fields;
     for (attrName in attrs) {
@@ -46,7 +48,7 @@ module.exports = function(we) {
         values,
         errors,
         theme,
-        options.data.root,
+        locals,
         formId,
         formName
       );
@@ -61,7 +63,7 @@ module.exports = function(we) {
       for (attrName in attrs) {
         attr = attrs[attrName];
         fields += we.form.renderField (
-          attrName,attr, attrs, values, errors, theme, options.data.root, formId, formName
+          attrName,attr, attrs, values, errors, theme, locals, formId, formName
         );
       }
       // close we.js form actions
@@ -73,7 +75,7 @@ module.exports = function(we) {
       controllAttrs += ' we-submit="'+we.form.forms[formName].actionType+'" ';
     }
 
-    fields += we.form.renderRedirectField(options.data.root);
+    fields += we.form.renderRedirectField(locals);
 
     html += we.view.renderTemplate('forms/form', theme, {
       formId: formId,
@@ -84,7 +86,7 @@ module.exports = function(we) {
       context: this,
        __: this.__ ,
       controllAttrs: controllAttrs,
-      locals: options.data.root,
+      locals: locals,
       uuid: uuid
     });
 
