@@ -1,1 +1,1 @@
- <button type="submit" class="btn btn-primary" name="{{name}}" value="{{value}}" {{{fieldAttrs}}}>{{{label}}}</button>
+ <button type="submit" {{#unless field.formFieldAttributes.class}}class="btn btn-primary"{{/unless}} name="{{name}}" value="{{value}}" {{{fieldAttrs}}}>{{{label}}}</button>

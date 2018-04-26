@@ -1,1 +1,1 @@
- <button type="button" class="btn btn-default" name="{{name}}" value="{{value}}" {{{fieldAttrs}}}>{{{label}}}</button>
+ <button type="button" {{#unless field.formFieldAttributes.class}}class="btn btn-default"{{/unless}} name="{{name}}" value="{{value}}" {{{fieldAttrs}}}>{{{label}}}</button>
