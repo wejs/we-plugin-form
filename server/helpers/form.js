@@ -83,6 +83,7 @@ module.exports = function(we) {
       form: we.form.forms[formName],
       action: options.hash.action || we.form.forms[formName].action,
       fields: fields,
+      enctype: we.form.forms[formName].enctype || 'application/x-www-form-urlencoded',
       context: this,
        __: this.__ ,
       controllAttrs: controllAttrs,

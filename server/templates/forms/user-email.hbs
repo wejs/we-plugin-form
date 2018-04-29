@@ -3,7 +3,7 @@
     <label for="{{fieldId}}">{{{label}}}{{#ifCond field.allowNull false}}*{{/ifCond}}
     </label>
     <input id="{{fieldId}}" name="{{name}}" type="email" class="form-control" placeholder="{{{placeholder}}}" {{{fieldAttrs}}} value="{{value}}">
-    <p class="help-block">{{t help}}</p>
+    <p class="help-block">{{{help}}}</p>
   {{else}}
     <label for="{{fieldId}}">{{{label}}}:</label> {{value}}
   {{/can}}
