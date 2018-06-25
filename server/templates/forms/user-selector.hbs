@@ -2,7 +2,7 @@
   <label for="{{fieldId}}">{{{label}}} {{#ifCond field.allowNull false}}*{{/ifCond}}</label>
   {{{field-help-error error}}}
 
-  <select id="{{fieldId}}" name="{{field.fieldName}}"
+  <select id="{{fieldId}}" name="{{#if field.name}}{{field.fieldName}}{{else}}{{name}}{{/if}}"
     class="form-control" {{{fieldAttrs}}}
     {{#if field.formFieldMultiple}}multiple="multiple"{{/if}}>
     {{#if values.users}}
