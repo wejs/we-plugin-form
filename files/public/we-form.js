@@ -5,8 +5,9 @@
 window.addEventListener('WebComponentsReady', function() {
   var WeCheckboxPrototype = Object.create(HTMLElement.prototype);
   WeCheckboxPrototype.createdCallback = function createdCallback() {
-    this.selector = this.children[0];
-    this.dataField = this.children[1];
+    window.test = this;
+    this.selector = this.querySelector('input[type="checkbox"]');
+    this.dataField = this.querySelector('input[type="hidden"]');
 
     this.selector.addEventListener('change', this.onChangeCheckedValue.bind(this));
   };
