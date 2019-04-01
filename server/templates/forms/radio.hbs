@@ -9,7 +9,7 @@
         {{#with ../this}}
           <div class="radio{{#if ../../../field.formFieldAttributes.inline}}-inline{{/if}}">
             <label>
-              <input type="radio" name="{{name}}" value="{{@key}}" checked="checked" {{{fieldAttrs}}} >{{t this}}
+              <input type="radio" name="{{../../../name}}" value="{{@key}}" checked="checked" {{{../fieldAttrs}}} >{{t this}}
             </label>
           </div>
         {{/with}}
@@ -17,7 +17,7 @@
         {{#with ../this}}
           <div class="radio{{#if ../../../field.formFieldAttributes.inline}}-inline{{/if}}">
             <label>
-              <input type="radio" name="{{name}}" value="{{@key}}" {{{fieldAttrs}}} >{{t this}}
+              <input type="radio" name="{{../../../name}}" value="{{@key}}" {{{../fieldAttrs}}} >{{t this}}
             </label>
           </div>
         {{/with}}
