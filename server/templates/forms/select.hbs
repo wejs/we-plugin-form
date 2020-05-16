@@ -6,16 +6,12 @@
     {{/if}}
     {{#each field.fieldOptions}}
       {{#ifCond @key ../value}}
-        {{#with ../this}}
-          <option selected="selected" value="{{@key}}">{{t this}}</option>
-        {{/with}}
+        <option selected="selected" value="{{@key}}">{{t this}}</option>
       {{else}}
-        {{#with ../this}}
-          <option value="{{@key}}">{{t this}}</option>
-        {{/with}}
+        <option value="{{@key}}">{{t this}}</option>
       {{/ifCond}}
     {{/each}}
   </select>
-  <p class="help-block">{{{help}}}</p>
+  <p class="help-block">{{t help}}</p>
   {{{field-help-error error}}}
 </div>
